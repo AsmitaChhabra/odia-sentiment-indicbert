@@ -1,20 +1,12 @@
 """
-Odia Sentiment -- MASTER SCRIPT (overnight run)
-Fixes applied: dedup before split, HTML-entity cleanup, tighter early stopping,
-2-seed ensemble for the extra accuracy lever, full evaluation at the end.
-
-Run with nohup so it survives your SSH session disconnecting:
+Run with nohup:
     nohup python3 odia_sentiment_master.py > run.log 2>&1 &
 
 Detach safely and check progress anytime with:
     tail -f run.log
 
-In the morning, read final_report.txt for the full writeup-ready summary.
-
 NOTE ON RUNTIME: this trains 2 full seeds sequentially, up to 5 epochs each
-(early stopping usually cuts this short). Check the printed row count early
-in run.log -- if it still looks too slow, you can kill it (see bottom of
-file) and drop to a single seed instead.
+(early stopping usually cuts this short).
 """
 
 import os

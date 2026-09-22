@@ -1,0 +1,85 @@
+nohup: ignoring input
+======================================================================
+LOADING OOD DATASET
+======================================================================
+Total rows: 1000
+Rows used for evaluation: 998
+Rows excluded because of missing label: 2
+Label counts: Counter({'Positive': 506, 'Negative': 492})
+Device: cuda
+GPU: NVIDIA RTX A4500
+
+======================================================================
+LOADING Seed 42
+======================================================================
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 5745.62it/s]
+
+Seed 42 results
+----------------------------------------
+Accuracy : 0.8878
+Macro-F1 : 0.8873
+
+Classification Report:
+              precision    recall  f1-score   support
+
+    Negative     0.9299    0.8354    0.8801       492
+    Positive     0.8543    0.9387    0.8945       506
+
+    accuracy                         0.8878       998
+   macro avg     0.8921    0.8871    0.8873       998
+weighted avg     0.8916    0.8878    0.8874       998
+
+Confusion Matrix:
+[[411  81]
+ [ 31 475]]
+
+======================================================================
+LOADING Seed 43
+======================================================================
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 5474.60it/s]
+
+Seed 43 results
+----------------------------------------
+Accuracy : 0.8868
+Macro-F1 : 0.8861
+
+Classification Report:
+              precision    recall  f1-score   support
+
+    Negative     0.9417    0.8211    0.8773       492
+    Positive     0.8453    0.9506    0.8949       506
+
+    accuracy                         0.8868       998
+   macro avg     0.8935    0.8859    0.8861       998
+weighted avg     0.8929    0.8868    0.8862       998
+
+Confusion Matrix:
+[[404  88]
+ [ 25 481]]
+
+======================================================================
+ENSEMBLE RESULTS
+======================================================================
+Accuracy : 0.8948
+Macro-F1 : 0.8943
+
+Classification Report:
+              precision    recall  f1-score   support
+
+    Negative     0.9428    0.8374    0.8870       492
+    Positive     0.8574    0.9506    0.9016       506
+
+    accuracy                         0.8948       998
+   macro avg     0.9001    0.8940    0.8943       998
+weighted avg     0.8995    0.8948    0.8944       998
+
+Confusion Matrix:
+[[412  80]
+ [ 25 481]]
+
+Results saved to:
+ood_indicsentiment_results.json
+
+======================================================================
+OOD EVALUATION COMPLETE
+======================================================================

@@ -1,0 +1,20 @@
+{
+  "dataset": "ai4bharat/IndicSentiment",
+  "split": "test",
+  "language": "Odia",
+  "total_rows": 1000,
+  "evaluated_rows": 998,
+  "excluded_missing_label": 2,
+  "seed_42": {
+    "accuracy": 0.8877755511022044,
+    "macro_f1": 0.8873121297539691
+  },
+  "seed_43": {
+    "accuracy": 0.8867735470941884,
+    "macro_f1": 0.886095497815822
+  },
+  "ensemble": {
+    "accuracy": 0.8947895791583166,
+    "macro_f1": 0.8942842471523128
+  }
+}

@@ -1,0 +1,2 @@
+n_rows,benchmark_accuracy,native_accuracy,native_macro_f1,translationese_gap,translationese_gap_percentage_points
+255,0.8222672171237739,0.7764705882352941,0.7571063317792149,0.045796628888479796,4.579662888847979

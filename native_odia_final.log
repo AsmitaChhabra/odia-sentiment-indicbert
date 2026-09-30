@@ -1,0 +1,73 @@
+
+=== STEP 1: Loading native Odia test set ===
+Columns: ['id', 'text', 'source', 'url', 'source_id', 'annotator_id', 'notes', 'annotated_at', 'label', 'reviewer_name', 'group_id', 'centrally_saved_at']
+Number of rows: 255
+
+Label counts:
+label
+positive    148
+negative    107
+Name: count, dtype: int64
+
+First 3 rows:
+                                                text     label
+0  ଆତ୍ମାକୁ ବହୁତ ଶାନ୍ତି ଲାଗିଲା ମାଳିକା ବଚନ ଶୁଣି 🌹🌹🌹...  positive
+1  ଏଇଟା ନାରୀ ନୁହଁ ନାଗୁଣୀ ମଥାରେ ସିନ୍ଦୁର ନାହିଁ ବାଳ ...  negative
+2              Otv medias ଉପରେ  ପଡିବ ଆଜ୍ଞା, ଧନ୍ୟବାଦ.  positive
+
+Final label counts:
+label
+0    107
+1    148
+Name: count, dtype: int64
+
+=== STEP 2: Loading tokenizer ===
+
+=== Evaluating seed 42 ===
+Model: /mnt/ssd/nlp/Group1/odia_sentiment_checkpoints/seed_42/best_model_final
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 10535.95it/s]
+Seed 42 accuracy: 0.7843
+Seed 42 macro-F1: 0.7678
+
+=== Evaluating seed 43 ===
+Model: /mnt/ssd/nlp/Group1/odia_sentiment_checkpoints/seed_43/best_model_final
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 12712.89it/s]
+Seed 43 accuracy: 0.7686
+Seed 43 macro-F1: 0.7461
+
+=== STEP 3: Two-seed ensemble ===
+
+============================================================
+FINAL NATIVE ODIA RESULTS
+============================================================
+Native Odia accuracy : 0.7765
+Native Odia macro-F1 : 0.7571
+
+Confusion matrix:
+[[ 63  44]
+ [ 13 135]]
+
+Classification report:
+              precision    recall  f1-score   support
+
+    Negative     0.8289    0.5888    0.6885       107
+    Positive     0.7542    0.9122    0.8257       148
+
+    accuracy                         0.7765       255
+   macro avg     0.7916    0.7505    0.7571       255
+weighted avg     0.7856    0.7765    0.7681       255
+
+
+============================================================
+TRANSLATIONESE GAP
+============================================================
+Benchmark accuracy   : 0.8223
+Native Odia accuracy : 0.7765
+Translationese gap   : 0.0458
+Translationese gap   : 4.58 percentage points
+
+Saved:
+  native_odia_evaluation_results.csv
+  native_odia_predictions.csv
+
+DONE.

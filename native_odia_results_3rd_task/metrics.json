@@ -1,0 +1,282 @@
+{
+  "group": "Group 1",
+  "task": "Binary sentiment classification (positive/negative) of native Odia YouTube comments",
+  "model": "ai4bharat/IndicBERTv2-MLM-only",
+  "train_file": "/mnt/ssd/nlp/Group1/native_odia_sentiment_experiment/data/01_sentiment_groups_1_8_train.jsonl",
+  "test_file": "/mnt/ssd/nlp/Group1/native_odia_sentiment_experiment/data/01_sentiment_groups_1_8_test.jsonl",
+  "settings": {
+    "seeds": [
+      42,
+      43
+    ],
+    "split_seed": 42,
+    "val_size": 0.15,
+    "lr": 3e-05,
+    "batch_size": 16,
+    "epochs": 10,
+    "patience": 3,
+    "max_len": 128,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.1,
+    "warmup_steps": 49,
+    "fp16": true,
+    "model_selection": "best epoch by validation macro-F1"
+  },
+  "data": {
+    "train_pool": {
+      "total": 887,
+      "positive": 473,
+      "negative": 414
+    },
+    "train": {
+      "total": 764,
+      "positive": 418,
+      "negative": 346
+    },
+    "validation": {
+      "total": 123,
+      "positive": 55,
+      "negative": 68
+    },
+    "test": {
+      "total": 255,
+      "positive": 148,
+      "negative": 107
+    },
+    "train_tokens_truncated": 0
+  },
+  "per_seed": {
+    "42": {
+      "best_epoch": 2.0,
+      "epochs_run": 5.0,
+      "best_checkpoint": "/mnt/ssd/nlp/Group1/native_odia_sentiment_experiment/checkpoints/native_seed_42/checkpoint-96",
+      "val": {
+        "accuracy": 0.8455284552845529,
+        "macro_f1": 0.8428696295300209,
+        "weighted_f1": 0.845029925455578,
+        "per_class": {
+          "negative": {
+            "precision": 0.8450704225352113,
+            "recall": 0.8823529411764706,
+            "f1": 0.8633093525179856,
+            "support": 68
+          },
+          "positive": {
+            "precision": 0.8461538461538461,
+            "recall": 0.8,
+            "f1": 0.822429906542056,
+            "support": 55
+          }
+        },
+        "confusion_matrix": [
+          [
+            60,
+            8
+          ],
+          [
+            11,
+            44
+          ]
+        ]
+      },
+      "test": {
+        "accuracy": 0.8980392156862745,
+        "macro_f1": 0.896883165360209,
+        "weighted_f1": 0.8986386491886789,
+        "per_class": {
+          "negative": {
+            "precision": 0.8347107438016529,
+            "recall": 0.9439252336448598,
+            "f1": 0.8859649122807017,
+            "support": 107
+          },
+          "positive": {
+            "precision": 0.9552238805970149,
+            "recall": 0.8648648648648649,
+            "f1": 0.9078014184397163,
+            "support": 148
+          }
+        },
+        "confusion_matrix": [
+          [
+            101,
+            6
+          ],
+          [
+            20,
+            128
+          ]
+        ]
+      }
+    },
+    "43": {
+      "best_epoch": 5.0,
+      "epochs_run": 8.0,
+      "best_checkpoint": "/mnt/ssd/nlp/Group1/native_odia_sentiment_experiment/checkpoints/native_seed_43/checkpoint-240",
+      "val": {
+        "accuracy": 0.8617886178861789,
+        "macro_f1": 0.861201460338533,
+        "weighted_f1": 0.8621555913534575,
+        "per_class": {
+          "negative": {
+            "precision": 0.9047619047619048,
+            "recall": 0.8382352941176471,
+            "f1": 0.8702290076335878,
+            "support": 68
+          },
+          "positive": {
+            "precision": 0.8166666666666667,
+            "recall": 0.8909090909090909,
+            "f1": 0.8521739130434782,
+            "support": 55
+          }
+        },
+        "confusion_matrix": [
+          [
+            57,
+            11
+          ],
+          [
+            6,
+            49
+          ]
+        ]
+      },
+      "test": {
+        "accuracy": 0.9215686274509803,
+        "macro_f1": 0.9194872442535994,
+        "weighted_f1": 0.9215686274509803,
+        "per_class": {
+          "negative": {
+            "precision": 0.9065420560747663,
+            "recall": 0.9065420560747663,
+            "f1": 0.9065420560747663,
+            "support": 107
+          },
+          "positive": {
+            "precision": 0.9324324324324325,
+            "recall": 0.9324324324324325,
+            "f1": 0.9324324324324325,
+            "support": 148
+          }
+        },
+        "confusion_matrix": [
+          [
+            97,
+            10
+          ],
+          [
+            10,
+            138
+          ]
+        ]
+      }
+    }
+  },
+  "per_seed_test_mean_std": {
+    "accuracy_mean": 0.9098039215686274,
+    "accuracy_std": 0.0117647058823529,
+    "macro_f1_mean": 0.9081852048069041,
+    "macro_f1_std": 0.011302039446695222
+  },
+  "ensemble": {
+    "val": {
+      "accuracy": 0.8536585365853658,
+      "macro_f1": 0.8528708133971292,
+      "weighted_f1": 0.8540086357801377,
+      "per_class": {
+        "negative": {
+          "precision": 0.890625,
+          "recall": 0.8382352941176471,
+          "f1": 0.8636363636363636,
+          "support": 68
+        },
+        "positive": {
+          "precision": 0.8135593220338984,
+          "recall": 0.8727272727272727,
+          "f1": 0.8421052631578947,
+          "support": 55
+        }
+      },
+      "confusion_matrix": [
+        [
+          57,
+          11
+        ],
+        [
+          7,
+          48
+        ]
+      ]
+    },
+    "test": {
+      "accuracy": 0.9215686274509803,
+      "macro_f1": 0.9194872442535994,
+      "weighted_f1": 0.9215686274509803,
+      "per_class": {
+        "negative": {
+          "precision": 0.9065420560747663,
+          "recall": 0.9065420560747663,
+          "f1": 0.9065420560747663,
+          "support": 107
+        },
+        "positive": {
+          "precision": 0.9324324324324325,
+          "recall": 0.9324324324324325,
+          "f1": 0.9324324324324325,
+          "support": 148
+        }
+      },
+      "confusion_matrix": [
+        [
+          97,
+          10
+        ],
+        [
+          10,
+          138
+        ]
+      ]
+    }
+  },
+  "final_test": {
+    "source": "ensemble",
+    "accuracy": 0.9215686274509803,
+    "macro_f1": 0.9194872442535994,
+    "weighted_f1": 0.9215686274509803,
+    "per_class": {
+      "negative": {
+        "precision": 0.9065420560747663,
+        "recall": 0.9065420560747663,
+        "f1": 0.9065420560747663,
+        "support": 107
+      },
+      "positive": {
+        "precision": 0.9324324324324325,
+        "recall": 0.9324324324324325,
+        "f1": 0.9324324324324325,
+        "support": 148
+      }
+    },
+    "confusion_matrix": [
+      [
+        97,
+        10
+      ],
+      [
+        10,
+        138
+      ]
+    ]
+  },
+  "previous_benchmark_trained_model_on_same_test": {
+    "accuracy": 0.7765,
+    "macro_f1": 0.7571
+  },
+  "started": "2026-11-25T10:14:25",
+  "finished": "2026-11-25T10:16:09",
+  "versions": {
+    "torch": "2.14.0+cu130",
+    "transformers": "5.17.0"
+  }
+}

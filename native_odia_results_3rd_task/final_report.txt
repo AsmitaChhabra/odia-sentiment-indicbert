@@ -1,0 +1,50 @@
+NATIVE ODIA SENTIMENT -- FINE-TUNING ON NATIVE ODIA DATA
+============================================================
+Group          : Group 1
+Task           : Binary sentiment classification (positive/negative) of native Odia YouTube comments
+Model          : ai4bharat/IndicBERTv2-MLM-only (fresh pretrained weights)
+
+Training settings
+  seeds           : [42, 43]
+  split_seed      : 42
+  val_size        : 0.15
+  lr              : 3e-05
+  batch_size      : 16
+  epochs          : 10
+  patience        : 3
+  max_len         : 128
+  weight_decay    : 0.01
+  warmup_ratio    : 0.1
+  warmup_steps    : 49
+  fp16            : True
+  model_selection : best epoch by validation macro-F1
+
+Data (label counts)
+  train_pool :  887 total |  473 positive |  414 negative
+  train      :  764 total |  418 positive |  346 negative
+  validation :  123 total |   55 positive |   68 negative
+  test       :  255 total |  148 positive |  107 negative
+
+Per-seed results
+  seed 42: best epoch 2 | val acc 0.8455 F1 0.8429 | test acc 0.8980 F1 0.8969
+  seed 43: best epoch 5 | val acc 0.8618 F1 0.8612 | test acc 0.9216 F1 0.9195
+  mean +/- std test acc 0.9098 +/- 0.0118, macro-F1 0.9082 +/- 0.0113
+
+FINAL TEST RESULT (ensemble, 255 samples)
+  Accuracy    : 0.9216
+  Macro-F1    : 0.9195
+  Weighted-F1 : 0.9216
+  Confusion matrix [rows=true neg,pos; cols=pred neg,pos]: [[97, 10], [10, 138]]
+
+              precision    recall  f1-score   support
+
+    negative     0.9065    0.9065    0.9065       107
+    positive     0.9324    0.9324    0.9324       148
+
+    accuracy                         0.9216       255
+   macro avg     0.9195    0.9195    0.9195       255
+weighted avg     0.9216    0.9216    0.9216       255
+
+Comparison on the same test set
+  Previous: IndiSentiment140-trained ensemble : acc 0.7765 | macro-F1 0.7571
+  Now     : Native-Odia-trained ensemble  : acc 0.9216 | macro-F1 0.9195
